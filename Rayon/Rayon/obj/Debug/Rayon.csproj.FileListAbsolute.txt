@@ -1,0 +1,10 @@
+C:\Users\USER\source\repos\Rayon\Rayon\bin\Debug\Rayon.exe.config
+C:\Users\USER\source\repos\Rayon\Rayon\bin\Debug\Rayon.exe
+C:\Users\USER\source\repos\Rayon\Rayon\bin\Debug\Rayon.pdb
+C:\Users\USER\source\repos\Rayon\Rayon\obj\Debug\Rayon.csprojAssemblyReference.cache
+C:\Users\USER\source\repos\Rayon\Rayon\obj\Debug\Rayon.Form1.resources
+C:\Users\USER\source\repos\Rayon\Rayon\obj\Debug\Rayon.Properties.Resources.resources
+C:\Users\USER\source\repos\Rayon\Rayon\obj\Debug\Rayon.csproj.GenerateResource.cache
+C:\Users\USER\source\repos\Rayon\Rayon\obj\Debug\Rayon.csproj.CoreCompileInputs.cache
+C:\Users\USER\source\repos\Rayon\Rayon\obj\Debug\Rayon.exe
+C:\Users\USER\source\repos\Rayon\Rayon\obj\Debug\Rayon.pdb
