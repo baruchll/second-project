@@ -19,6 +19,7 @@ namespace Rayon
         {
             InitializeComponent();
         }
+
         IFirebaseConfig fcon = new FirebaseConfig()
         {
             AuthSecret = "FcfrmamSoDiqHtNn4AYVISfN6LSEHi5XGAO9Kp4N", 
@@ -27,40 +28,84 @@ namespace Rayon
 
         IFirebaseClient client;
 
-        public Boolean TzCheck() 
+        public Boolean TzChecks
         {
-
-            int tz = Int32.Parse(txtTz.Text);
-            int[] tzChecking = { 21212121 } ;
-            int[] arr = new int[ 8];
-            int bikoret = tz % 10;
-            int temp = 0, sum = 0,sum2 = 0;
-            int tz2 = tz / 10;
-
-
-            int[] toArray = Array.ConvertAll(tz2.ToString().ToArray(), x => (int)x);
-
-
-            for (int i = 0; i < tzChecking.Length; i++) 
+            get
             {
-                temp = arr[i] * tzChecking[i];
-                if (temp > 10) {
-                    sum += temp % 10 + 1;
+                string s = txtTz.Text;
+                int[] tzarr = new int[txtTz.Text.Length];
 
-                }
-                else if(temp == 10)
+                for (int i = 0; i < txtTz.Text.Length; i++)
                 {
-                    sum += 1;  
+                    tzarr[i] = int.Parse(s[i].ToString());
+                }
+
+                int[] check = { 1, 2, 1, 2, 1, 2, 1, 2 };
+
+                int bikort = tzarr[s.Length - 1];//שווה לסיפרה האחרונה
+                int tmp = 0;
+                int sum = 0;
+
+                for (int i = 0; i < check.Length; i++)
+                {
+                    tmp = tzarr[i] * check[i];
+                    if (tmp > 10)
+                    {
+                        sum += tmp % 10 + 1;
+                    }
+                    else if (tmp == 10)
+                    {
+                        sum += 1;
+                    }
+                    else
+                    {
+                        sum += tmp;
+                    }
+                }
+                if ((sum + bikort) % 10 == 0)
+                {
+                    return true;
                 }
                 else
                 {
-                    sum += temp;
+                    return false;
                 }
-
-
             }
-            sum2 = sum + bikoret;
-            if ((sum2) % 10 == 0)
+        }
+
+        public Boolean TzChecking()
+        {
+            string s = txtTz.Text;
+            int[] tzarr = new int[txtTz.Text.Length];
+
+            for (int i = 0; i < txtTz.Text.Length; i++)
+            {
+                tzarr[i] = int.Parse(s[i].ToString());
+            }
+
+            int[] check = { 1, 2, 1, 2, 1, 2, 1, 2 };
+
+            int bikort = tzarr[s.Length - 1];//שווה לסיפרה האחרונה
+            int tmp = 0;
+            int sum = 0;
+
+            for (int i = 0; i < check.Length; i++)
+            {
+                tmp = tzarr[i] * check[i];
+                if (tmp > 10)
+                {
+                    sum += tmp % 10 + 1;
+                }
+                else if (tmp == 10)
+                {
+                    sum += 1;
+                }
+                else
+                {
+                    sum += tmp;
+                }
+            }
+            if ((sum + bikort) % 10 == 0)
             {
                 return true;
             }
@@ -153,7 +198,7 @@ namespace Rayon
                 string messages = "נכשלת בבגרות";
                 MessageBox.Show(messages);
             }
-            else if (TzCheck() == false)
+            else if (TzChecking() == false)
             {
                 string messages = "תז לא תקין";
                 MessageBox.Show(messages);
@@ -170,7 +215,36 @@ namespace Rayon
             
         }
 
-        
+        private void profileCheck_Click(object sender, EventArgs e)
+        {
+            Class1 user = new Class1()
+            {
+                name = txtName.Text,
+                tz = txtTz.Text,
+                kaba = txtKaba.Text,
+                dapr = txtDapr.Text,
+                bagrut = txtBagrut.Text
+
+            };
+            if (TzChecking() == false)
+            {
+                string messages = "תז לא תקין";
+                MessageBox.Show(messages);
+            }
+            else
+            {
+                var getter = client.Get("User/" + txtTz.Text);
+                Class1 user2 = getter.ResultAs<Class1>();
+                txtName.Text = user2.name;
+                txtTz.Text = user2.tz;
+                txtKaba.Text = user2.kaba;
+                txtDapr.Text = user2.dapr;
+                txtBagrut.Text = user2.bagrut;
+            }
+
+
+            
+        }
     }
 
     

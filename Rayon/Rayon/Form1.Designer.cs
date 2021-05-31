@@ -42,6 +42,7 @@ namespace Rayon
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.profileCheck = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Rezult
@@ -159,11 +160,22 @@ namespace Rayon
             this.label7.TabIndex = 14;
             this.label7.Text = "*אנה הזן פרטים אישיים";
             // 
+            // profileCheck
+            // 
+            this.profileCheck.Location = new System.Drawing.Point(348, 522);
+            this.profileCheck.Name = "profileCheck";
+            this.profileCheck.Size = new System.Drawing.Size(131, 23);
+            this.profileCheck.TabIndex = 15;
+            this.profileCheck.Text = "להדפסת פרטים";
+            this.profileCheck.UseVisualStyleBackColor = true;
+            this.profileCheck.Click += new System.EventHandler(this.profileCheck_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(876, 727);
+            this.Controls.Add(this.profileCheck);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -200,6 +212,7 @@ namespace Rayon
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button profileCheck;
     }
 }
 
