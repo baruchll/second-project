@@ -28,56 +28,16 @@ namespace Rayon
 
         IFirebaseClient client;
 
-        public Boolean TzChecks
-        {
-            get
-            {
-                string s = txtTz.Text;
-                int[] tzarr = new int[txtTz.Text.Length];
-
-                for (int i = 0; i < txtTz.Text.Length; i++)
-                {
-                    tzarr[i] = int.Parse(s[i].ToString());
-                }
-
-                int[] check = { 1, 2, 1, 2, 1, 2, 1, 2 };
-
-                int bikort = tzarr[s.Length - 1];//שווה לסיפרה האחרונה
-                int tmp = 0;
-                int sum = 0;
-
-                for (int i = 0; i < check.Length; i++)
-                {
-                    tmp = tzarr[i] * check[i];
-                    if (tmp > 10)
-                    {
-                        sum += tmp % 10 + 1;
-                    }
-                    else if (tmp == 10)
-                    {
-                        sum += 1;
-                    }
-                    else
-                    {
-                        sum += tmp;
-                    }
-                }
-                if ((sum + bikort) % 10 == 0)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-        }
-
-        public Boolean TzChecking()
+               public Boolean TzChecking()
         {
             string s = txtTz.Text;
             int[] tzarr = new int[txtTz.Text.Length];
 
+
+            if (txtTz.Text.Length != 9)
+            {
+                return false;
+            }
             for (int i = 0; i < txtTz.Text.Length; i++)
             {
                 tzarr[i] = int.Parse(s[i].ToString());
