@@ -86,7 +86,7 @@ namespace Rayon
             }
             catch
             {
-                MessageBox.Show("there is a problem");
+                MessageBox.Show("יש שגיעה בשרת");
             }
         }
 
@@ -135,27 +135,27 @@ namespace Rayon
 
             if (String.IsNullOrEmpty(txtName.Text) || String.IsNullOrEmpty(txtTz.Text) || String.IsNullOrEmpty(txtDapr.Text) || String.IsNullOrEmpty(txtKaba.Text) || String.IsNullOrEmpty(txtBagrut.Text))
             {
-                string message = "unsuccessful";
+                string message = "יש תאים ריקים";
                 MessageBox.Show(message);
             }
             else if (kaba2 < 41 || kaba2 > 56)
             {
-                string messages = "incorrect answer";
+                string messages = "קבא שגוי";
                 MessageBox.Show(messages);
             }
             else if (dapr2 < 10 || dapr2 > 90)
             {
-                string messages = "incorrect answer";
+                string messages = "דפר שגוי";
                 MessageBox.Show(messages);
             }
             else if (bagrut2 < 56 || dapr2 > 100)
             {
-                string messages = "incorrect answer";
+                string messages = "נכשלת בבגרות";
                 MessageBox.Show(messages);
             }
             else if (TzCheck() == false)
             {
-                string messages = "bad tz";
+                string messages = "תז לא תקין";
                 MessageBox.Show(messages);
             }
 
@@ -164,7 +164,7 @@ namespace Rayon
             {
 
                 var setter = client.Set("User/" + String.Format(txtTz.Text), user);
-                string message = "successful";
+                string message = "עדכון פרטים לשרת בהצלחה";
                 MessageBox.Show(message);
             }
             
